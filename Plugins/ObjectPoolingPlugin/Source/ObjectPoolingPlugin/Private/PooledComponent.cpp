@@ -22,6 +22,8 @@ void UPooledComponent::BeginPlay()
 
 	SetActorInactive();
 
+	UE_LOG(LogTemp, Display, TEXT("STARTED"));
+
 	// ...
 	
 }
@@ -42,6 +44,7 @@ bool UPooledComponent::IsActorActive()
 
 void UPooledComponent::SetActorActive_Implementation()
 {
+	//UE_LOG(LogTemp, Display, TEXT("ACTIVATED"));
 	bIsActive = true;
 	GetOwner()->SetActorHiddenInGame(false);
 	GetOwner()->SetActorEnableCollision(true);
@@ -52,6 +55,7 @@ void UPooledComponent::SetActorActive_Implementation()
 
 void UPooledComponent::SetActorInactive_Implementation()
 {
+	//UE_LOG(LogTemp, Display, TEXT("DEACTIVATED"));
 	bIsActive = false;
 	GetOwner()->SetActorHiddenInGame(true);
 	GetOwner()->SetActorEnableCollision(false);

@@ -26,6 +26,7 @@ public class ObjectPoolingPlugin : ModuleRules
 			new string[]
 			{
 				"Core",
+				"CoreUObject",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -34,7 +35,6 @@ public class ObjectPoolingPlugin : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
 				"Engine",
 				"Slate",
 				"SlateCore",

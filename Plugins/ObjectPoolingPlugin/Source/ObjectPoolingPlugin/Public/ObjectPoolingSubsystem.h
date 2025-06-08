@@ -28,25 +28,26 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void InitializePool(TSubclassOf<AActor> ActorClass, int PoolSize);
 
-	//UFUNCTION(BlueprintCallable)
-	//AActor* GetFirstAvailableActor(TSubclassOf<AActor> ActorClass);
+	UFUNCTION(BlueprintCallable)
+	void DeletePool(TSubclassOf<AActor> ActorClass);
 
 	UFUNCTION(BlueprintCallable)
-	UPooledComponent* GetFirstAvailablePooledComponent(const TSubclassOf<AActor>& ActorClass);
+	AActor* SpawnFromPool(const TSubclassOf<AActor>& ActorClass, const FTransform SpawnTransform);
 
 	UFUNCTION(BlueprintCallable)
-	TArray<UPooledComponent*> GetMultipleAvailablePooledComponents(const TSubclassOf<AActor>& ActorClass, const int Quantity);
+	TArray<AActor*> SpawnMultipleFromPool(const TSubclassOf<AActor>& ActorClass, const int Quantity, const FTransform SpawnTransform);
 
 	UFUNCTION(BlueprintCallable)
-	AActor* SpawnFromPool(const TSubclassOf<AActor>& ActorClass);
-
-	UFUNCTION(BlueprintCallable)
-	TArray<AActor*> SpawnMultipleFromPool(const TSubclassOf<AActor>& ActorClass, const int Quantity);
+	int GetNumberOfAvailableFromPool(const TSubclassOf<AActor>& ActorClass);
 
 protected:
-	//UPROPERTY()
-	//TArray<FObjectPoolData> ObjectPools;
-
 	UPROPERTY()
 	TMap<TSubclassOf<AActor>, FObjectPoolData> ObjectPools;
+
+	UFUNCTION()
+	UPooledComponent* GetFirstAvailablePooledComponent(const TSubclassOf<AActor>& ActorClass);
+
+	//UFUNCTION()
+	//void GetMultipleAvailablePooledComponents(const TSubclassOf<AActor>& ActorClass, const int Quantity, TArray<UPooledComponent*>& PooledComponents);
+
 };

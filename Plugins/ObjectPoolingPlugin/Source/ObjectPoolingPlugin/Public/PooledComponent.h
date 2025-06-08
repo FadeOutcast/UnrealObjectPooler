@@ -7,7 +7,7 @@
 #include "PooledComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class OBJECTPOOLINGPLUGIN_API UPooledComponent : public UActorComponent
 {
 	GENERATED_BODY()
